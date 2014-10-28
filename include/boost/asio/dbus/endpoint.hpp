@@ -3,13 +3,15 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_ENDPOINT_HPP
-#define DBUS_ENDPOINT_HPP
+#ifndef BOOST_ASIO_DBUS_ENDPOINT_HPP
+#define BOOST_ASIO_DBUS_ENDPOINT_HPP
 
 #include <dbus/dbus.h>
-#include <dbus/element.hpp>
-#include <dbus/message.hpp>
+#include <boost/asio/dbus/element.hpp>
+#include <boost/asio/dbus/message.hpp>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 
 class endpoint
@@ -47,5 +49,7 @@ public:
 };
 
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_ENDPOINT_HPP
+#endif // BOOST_ASIO_DBUS_ENDPOINT_HPP

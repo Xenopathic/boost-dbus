@@ -4,8 +4,8 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #include <gtest/gtest.h>
-#include <dbus/message.hpp>
-#include <dbus/error.hpp>
+#include <boost/asio/dbus/message.hpp>
+#include <boost/asio/dbus/error.hpp>
 
 
 class MessageTest
@@ -16,7 +16,7 @@ class MessageTest
 
 TEST_F(MessageTest, CallMessage)
 {
-  using namespace dbus;
+  using namespace boost::asio::dbus;
 
   const message m = message::new_call(
     endpoint(
@@ -50,7 +50,7 @@ TEST_F(MessageTest, CallMessage)
 /*
 TEST_F(MessageTest, ErrorMessage)
 {
-  using namespace dbus;
+  using namespace boost::asio::dbus;
 
   message m = message::new_call(
     endpoint(

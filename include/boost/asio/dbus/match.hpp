@@ -3,15 +3,17 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_MATCH_HPP
-#define DBUS_MATCH_HPP
+#ifndef BOOST_ASIO_DBUS_MATCH_HPP
+#define BOOST_ASIO_DBUS_MATCH_HPP
 
 #include <string>
 #include <boost/asio.hpp>
 
-#include <dbus/error.hpp>
-#include <dbus/connection.hpp>
+#include <boost/asio/dbus/error.hpp>
+#include <boost/asio/dbus/connection.hpp>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 
 /// Simple placeholder object for a match rule.
@@ -45,7 +47,9 @@ public:
 };
 
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#include <dbus/impl/match.ipp>
+#include <boost/asio/dbus/impl/match.ipp>
 
-#endif // DBUS_MATCH_HPP
+#endif // BOOST_ASIO_DBUS_MATCH_HPP

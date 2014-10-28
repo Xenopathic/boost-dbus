@@ -3,11 +3,13 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_IMPL_MESSAGE_ITERATOR_HPP
-#define DBUS_IMPL_MESSAGE_ITERATOR_HPP
+#ifndef BOOST_ASIO_DBUS_IMPL_MESSAGE_ITERATOR_HPP
+#define BOOST_ASIO_DBUS_IMPL_MESSAGE_ITERATOR_HPP
 
 #include <dbus/dbus.h>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 
 class message;
@@ -46,5 +48,7 @@ public:
 
 } // namespace impl
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_IMPL_MESSAGE_ITERATOR_HPP
+#endif // BOOST_ASIO_DBUS_IMPL_MESSAGE_ITERATOR_HPP

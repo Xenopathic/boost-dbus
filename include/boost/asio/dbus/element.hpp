@@ -3,13 +3,15 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_ELEMENT_HPP
-#define DBUS_ELEMENT_HPP
+#ifndef BOOST_ASIO_DBUS_ELEMENT_HPP
+#define BOOST_ASIO_DBUS_ELEMENT_HPP
 
 #include <dbus/dbus.h>
 #include <boost/cstdint.hpp>
 #include <string>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 
 /// Message elements
@@ -185,5 +187,7 @@ template<> struct is_string_type< signature >
 
 
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_ELEMENT_HPP
+#endif // BOOST_ASIO_DBUS_ELEMENT_HPP

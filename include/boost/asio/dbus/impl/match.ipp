@@ -3,9 +3,11 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_MATCH_IPP
-#define DBUS_MATCH_IPP
+#ifndef BOOST_ASIO_DBUS_MATCH_IPP
+#define BOOST_ASIO_DBUS_MATCH_IPP
 
+namespace boost {
+namespace asio {
 namespace dbus {
 
 void connection_service::new_match(implementation_type& impl,
@@ -27,5 +29,7 @@ void connection_service::delete_match(implementation_type& impl,
 }
 
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_MATCH_IPP
+#endif // BOOST_ASIO_DBUS_MATCH_IPP

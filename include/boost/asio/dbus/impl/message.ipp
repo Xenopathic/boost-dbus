@@ -3,9 +3,11 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_MESSAGE_IPP
-#define DBUS_MESSAGE_IPP
+#ifndef BOOST_ASIO_DBUS_MESSAGE_IPP
+#define BOOST_ASIO_DBUS_MESSAGE_IPP
 
+namespace boost {
+namespace asio {
 namespace dbus {
 
 message message::new_call(
@@ -46,5 +48,7 @@ message message::new_signal(
 }
 
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_MESSAGE_IPP
+#endif // BOOST_ASIO_DBUS_MESSAGE_IPP

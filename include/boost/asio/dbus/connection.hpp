@@ -3,16 +3,18 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_CONNECTION_HPP
-#define DBUS_CONNECTION_HPP
+#ifndef BOOST_ASIO_DBUS_CONNECTION_HPP
+#define BOOST_ASIO_DBUS_CONNECTION_HPP
 
 #include <string>
 #include <boost/asio.hpp>
-#include <dbus/chrono.hpp>
-#include <dbus/element.hpp>
-#include <dbus/message.hpp>
-#include <dbus/connection_service.hpp>
+#include <boost/asio/dbus/chrono.hpp>
+#include <boost/asio/dbus/element.hpp>
+#include <boost/asio/dbus/message.hpp>
+#include <boost/asio/dbus/connection_service.hpp>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 
 using namespace boost::asio;
@@ -160,6 +162,8 @@ public:
 
 
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
 
-#endif // DBUS_CONNECTION_HPP
+#endif // BOOST_ASIO_DBUS_CONNECTION_HPP

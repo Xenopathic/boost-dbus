@@ -3,15 +3,17 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_FILTER_HPP
-#define DBUS_FILTER_HPP
+#ifndef BOOST_ASIO_DBUS_FILTER_HPP
+#define BOOST_ASIO_DBUS_FILTER_HPP
 
 #include <boost/asio.hpp>
-#include <dbus/detail/queue.hpp>
-#include <dbus/message.hpp>
-#include <dbus/connection.hpp>
-#include <dbus/functional.hpp>
+#include <boost/asio/dbus/detail/queue.hpp>
+#include <boost/asio/dbus/message.hpp>
+#include <boost/asio/dbus/connection.hpp>
+#include <boost/asio/dbus/functional.hpp>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 
 /// Represents a filter of incoming messages.
@@ -64,7 +66,9 @@ public:
 
 };
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
 
-#include <dbus/impl/filter.ipp>
-#endif // DBUS_FILTER_HPP
+#include <boost/asio/dbus/impl/filter.ipp>
+#endif // BOOST_ASIO_DBUS_FILTER_HPP

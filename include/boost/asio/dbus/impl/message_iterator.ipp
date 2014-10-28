@@ -3,11 +3,13 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_IMPL_MESSAGE_ITERATOR_IPP
-#define DBUS_IMPL_MESSAGE_ITERATOR_IPP
+#ifndef BOOST_ASIO_DBUS_IMPL_MESSAGE_ITERATOR_IPP
+#define BOOST_ASIO_DBUS_IMPL_MESSAGE_ITERATOR_IPP
 
-#include <dbus/impl/message_iterator.hpp>
+#include <boost/asio/dbus/impl/message_iterator.hpp>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 namespace impl {
 
@@ -87,5 +89,7 @@ void message_iterator::get_fixed_array(void *value, int *n_elements)
 
 } // namespace impl
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_IMPL_MESSAGE_ITERATOR_IPP
+#endif // BOOST_ASIO_DBUS_IMPL_MESSAGE_ITERATOR_IPP

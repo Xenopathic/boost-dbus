@@ -3,9 +3,11 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_FILTER_IPP
-#define DBUS_FILTER_IPP
+#ifndef BOOST_ASIO_DBUS_FILTER_IPP
+#define BOOST_ASIO_DBUS_FILTER_IPP
 
+namespace boost {
+namespace asio {
 namespace dbus {
 namespace impl {
 
@@ -46,6 +48,8 @@ void connection_service::delete_filter(implementation_type& impl,
 }
 
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
 
-#endif // DBUS_FILTER_IPP
+#endif // BOOST_ASIO_DBUS_FILTER_IPP

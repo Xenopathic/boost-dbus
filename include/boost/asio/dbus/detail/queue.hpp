@@ -3,16 +3,18 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_QUEUE_HPP
-#define DBUS_QUEUE_HPP
+#ifndef BOOST_ASIO_DBUS_QUEUE_HPP
+#define BOOST_ASIO_DBUS_QUEUE_HPP
 
 #include <deque>
 #include <boost/asio.hpp>
 #include <boost/asio/detail/mutex.hpp>
 
-#include <dbus/functional.hpp>
+#include <boost/asio/dbus/functional.hpp>
 
 
+namespace boost {
+namespace asio {
 namespace dbus {
 namespace detail {
 
@@ -113,5 +115,7 @@ public:
 
 } // namespace detail
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_QUEUE_HPP
+#endif // BOOST_ASIO_DBUS_QUEUE_HPP

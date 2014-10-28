@@ -3,12 +3,12 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <dbus/connection.hpp>
-#include <dbus/message.hpp>
-#include <dbus/endpoint.hpp>
-#include <dbus/filter.hpp>
-#include <dbus/match.hpp>
-#include <dbus/functional.hpp>
+#include <boost/asio/dbus/connection.hpp>
+#include <boost/asio/dbus/message.hpp>
+#include <boost/asio/dbus/endpoint.hpp>
+#include <boost/asio/dbus/filter.hpp>
+#include <boost/asio/dbus/match.hpp>
+#include <boost/asio/dbus/functional.hpp>
 
 #include <gtest/gtest.h>
 #include <unistd.h>
@@ -16,7 +16,7 @@
 
 
 using namespace boost::asio;
-using namespace dbus;
+using namespace boost::asio::dbus;
 using boost::system::error_code;
 
 

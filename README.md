@@ -11,7 +11,7 @@ Code Sample
 #include <iostream>
 
 #include <boost/asio.hpp>
-#include <dbus.hpp>
+#include <boost/asio/dbus.hpp>
 
 using namespace std;
 using namespace boost::asio;

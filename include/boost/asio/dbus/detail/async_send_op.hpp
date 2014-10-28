@@ -3,17 +3,19 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_ASYNC_SEND_OP_HPP
-#define DBUS_ASYNC_SEND_OP_HPP
+#ifndef BOOST_ASIO_DBUS_ASYNC_SEND_OP_HPP
+#define BOOST_ASIO_DBUS_ASYNC_SEND_OP_HPP
 
 #include <boost/scoped_ptr.hpp>
 
 #include <dbus/dbus.h>
-#include <dbus/message.hpp>
-#include <dbus/error.hpp>
+#include <boost/asio/dbus/message.hpp>
+#include <boost/asio/dbus/error.hpp>
 
-#include <dbus/impl/connection.ipp>
+#include <boost/asio/dbus/impl/connection.ipp>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 namespace detail {
 
@@ -84,5 +86,7 @@ void async_send_op<MessageHandler>::operator()()
 
 } // namespace detail
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_ASYNC_SEND_OP_HPP
+#endif // BOOST_ASIO_DBUS_ASYNC_SEND_OP_HPP

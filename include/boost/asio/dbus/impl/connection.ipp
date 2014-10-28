@@ -3,14 +3,16 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_CONNECTION_IPP
-#define DBUS_CONNECTION_IPP
+#ifndef BOOST_ASIO_DBUS_CONNECTION_IPP
+#define BOOST_ASIO_DBUS_CONNECTION_IPP
 
 #include <dbus/dbus.h>
-#include <dbus/detail/watch_timeout.hpp>
+#include <boost/asio/dbus/detail/watch_timeout.hpp>
 
 #include <boost/atomic.hpp>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 namespace impl {
 
@@ -118,5 +120,7 @@ public:
 
 } // namespace impl
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_CONNECTION_IPP
+#endif // BOOST_ASIO_DBUS_CONNECTION_IPP

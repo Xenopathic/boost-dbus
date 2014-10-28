@@ -3,18 +3,20 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_CONNECTION_SERVICE_HPP
-#define DBUS_CONNECTION_SERVICE_HPP
+#ifndef BOOST_ASIO_DBUS_CONNECTION_SERVICE_HPP
+#define BOOST_ASIO_DBUS_CONNECTION_SERVICE_HPP
 
 #include <boost/asio.hpp>
 
-#include <dbus/error.hpp>
-#include <dbus/element.hpp>
-#include <dbus/message.hpp>
-#include <dbus/detail/async_send_op.hpp>
+#include <boost/asio/dbus/error.hpp>
+#include <boost/asio/dbus/element.hpp>
+#include <boost/asio/dbus/message.hpp>
+#include <boost/asio/dbus/detail/async_send_op.hpp>
 
-#include <dbus/impl/connection.ipp>
+#include <boost/asio/dbus/impl/connection.ipp>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 
 namespace bus {
@@ -134,5 +136,7 @@ io_service::id connection_service::id;
 
 
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_CONNECTION_SERVICE_HPP
+#endif // BOOST_ASIO_DBUS_CONNECTION_SERVICE_HPP

@@ -3,14 +3,14 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_MESSAGE_HPP
-#define DBUS_MESSAGE_HPP
+#ifndef BOOST_ASIO_DBUS_MESSAGE_HPP
+#define BOOST_ASIO_DBUS_MESSAGE_HPP
 
 #include <dbus/dbus.h>
-#include <dbus/element.hpp>
-#include <dbus/endpoint.hpp>
+#include <boost/asio/dbus/element.hpp>
+#include <boost/asio/dbus/endpoint.hpp>
 #include <boost/intrusive_ptr.hpp>
-#include <dbus/impl/message_iterator.hpp>
+#include <boost/asio/dbus/impl/message_iterator.hpp>
 
 void intrusive_ptr_add_ref(DBusMessage *m)
 {
@@ -22,6 +22,8 @@ void intrusive_ptr_release(DBusMessage *m)
   dbus_message_unref(m);
 }
 
+namespace boost {
+namespace asio {
 namespace dbus {
 
 class message
@@ -157,10 +159,12 @@ message::unpacker operator>>(message m, Element& e)
 }
 
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#include <dbus/impl/packer.ipp>
-#include <dbus/impl/unpacker.ipp>
-#include <dbus/impl/message.ipp>
-#include <dbus/impl/message_iterator.ipp>
+#include <boost/asio/dbus/impl/packer.ipp>
+#include <boost/asio/dbus/impl/unpacker.ipp>
+#include <boost/asio/dbus/impl/message.ipp>
+#include <boost/asio/dbus/impl/message_iterator.ipp>
 
-#endif // DBUS_MESSAGE_HPP
+#endif // BOOST_ASIO_DBUS_MESSAGE_HPP

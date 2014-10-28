@@ -3,12 +3,14 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_UNPACKER_IPP
-#define DBUS_UNPACKER_IPP
+#ifndef BOOST_ASIO_DBUS_UNPACKER_IPP
+#define BOOST_ASIO_DBUS_UNPACKER_IPP
 
 #include <boost/utility/enable_if.hpp>
-#include <dbus/element.hpp>
+#include <boost/asio/dbus/element.hpp>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 
 message::unpacker::unpacker(message& m)
@@ -36,5 +38,7 @@ operator>>(message::unpacker& u, string& s)
 }
 
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_UNPACKER_IPP
+#endif // BOOST_ASIO_DBUS_UNPACKER_IPP

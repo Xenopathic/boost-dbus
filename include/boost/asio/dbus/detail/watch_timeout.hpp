@@ -3,15 +3,17 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DBUS_WATCH_TIMEOUT_HPP
-#define DBUS_WATCH_TIMEOUT_HPP
+#ifndef BOOST_ASIO_DBUS_WATCH_TIMEOUT_HPP
+#define BOOST_ASIO_DBUS_WATCH_TIMEOUT_HPP
 
 #include <dbus/dbus.h>
 #include <boost/asio/generic/stream_protocol.hpp>
 #include <boost/asio/steady_timer.hpp>
 
-#include <dbus/chrono.hpp>
+#include <boost/asio/dbus/chrono.hpp>
 
+namespace boost {
+namespace asio {
 namespace dbus {
 namespace detail {
 
@@ -171,5 +173,7 @@ static void set_watch_timeout_dispatch_functions(DBusConnection *conn, boost::as
 
 } // namespace detail
 } // namespace dbus
+} // namespace asio
+} // namespace boost
 
-#endif // DBUS_WATCH_TIMEOUT_HPP
+#endif // BOOST_ASIO_DBUS_WATCH_TIMEOUT_HPP
