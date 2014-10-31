@@ -10,8 +10,8 @@
 #include <boost/asio/dbus/match.hpp>
 
 #include <gtest/gtest.h>
-#include <unistd.h>
 #include <functional>
+#include <algorithm>
 
 
 using namespace boost::asio;
@@ -47,19 +47,19 @@ TEST_F(AvahiTest, GetHostName)
   string avahi_hostname;
   string unix_hostname;
 
-  {
-    // get hostname from a system call
-    char c[1024];
-    gethostname(c, 1024);
-    unix_hostname = c;
-  }
+  unix_hostname = boost::asio::ip::host_name();
+  // Avahi removes any domain name suffix
+  unix_hostname = string(
+    unix_hostname.begin(),
+    std::find(unix_hostname.begin(), unix_hostname.end(), '.')
+  );
 
   // get hostname from the Avahi daemon
   message m = message::new_call(
     avahi_daemon,
     "GetHostName");
 
-  system_bus.async_send(m, [&](error_code ec, message r){  
+  system_bus.async_send(m, [&](error_code ec, message r){
     r.unpack(avahi_hostname);
 
     // this is only usually accurate
