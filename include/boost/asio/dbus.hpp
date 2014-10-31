@@ -11,7 +11,6 @@
 #include <boost/asio/dbus/endpoint.hpp>
 #include <boost/asio/dbus/error.hpp>
 #include <boost/asio/dbus/filter.hpp>
-#include <boost/asio/dbus/functional.hpp>
 #include <boost/asio/dbus/match.hpp>
 #include <boost/asio/dbus/message.hpp>
 

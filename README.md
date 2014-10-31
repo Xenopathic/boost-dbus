@@ -15,7 +15,7 @@ Code Sample
 
 using namespace std;
 using namespace boost::asio;
-using boost::system::error_code;
+using std::error_code;
 
 struct logger
 {

@@ -6,11 +6,12 @@
 #ifndef BOOST_ASIO_DBUS_FILTER_HPP
 #define BOOST_ASIO_DBUS_FILTER_HPP
 
-#include <boost/asio.hpp>
+#include <functional>
+#include <boost/asio/dbus/error.hpp>
 #include <boost/asio/dbus/detail/queue.hpp>
 #include <boost/asio/dbus/message.hpp>
 #include <boost/asio/dbus/connection.hpp>
-#include <boost/asio/dbus/functional.hpp>
+#include <boost/asio.hpp>
 
 namespace boost {
 namespace asio {
@@ -23,7 +24,7 @@ namespace dbus {
 class filter
 {
   connection& connection_;
-  function<bool(message&)> predicate_;
+  std::function<bool(message&)> predicate_;
   detail::queue<message> queue_;
 
 public:
@@ -52,7 +53,7 @@ public:
  
   template<typename MessageHandler>
   inline BOOST_ASIO_INITFN_RESULT_TYPE(MessageHandler,
-      void(boost::system::error_code, message))
+      void(std::error_code, message))
   async_dispatch(
       BOOST_ASIO_MOVE_ARG(MessageHandler) handler)
   {

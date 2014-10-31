@@ -72,11 +72,11 @@ public:
       int timeout_in_milliseconds = -1)
   {
     error e;
-    message reply(dbus_connection_send_with_reply_and_block(conn, 
-        m, timeout_in_milliseconds, e));
+    DBusMessage* reply = dbus_connection_send_with_reply_and_block(conn,
+        m, timeout_in_milliseconds, e);
 
     e.throw_if_set();
-    return reply;
+    return message(reply);
   }
 
   void send(message& m)

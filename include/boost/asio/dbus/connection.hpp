@@ -7,11 +7,12 @@
 #define BOOST_ASIO_DBUS_CONNECTION_HPP
 
 #include <string>
-#include <boost/asio.hpp>
 #include <boost/asio/dbus/chrono.hpp>
+#include <boost/asio/dbus/error.hpp>
 #include <boost/asio/dbus/element.hpp>
 #include <boost/asio/dbus/message.hpp>
 #include <boost/asio/dbus/connection_service.hpp>
+#include <boost/asio.hpp>
 
 namespace boost {
 namespace asio {
@@ -38,7 +39,7 @@ public:
    *
    * @param address The address of the bus to connect to.
    *
-   * @throws boost::system::system_error When opening the connection failed.
+   * @throws std::system_error When opening the connection failed.
    */
   connection(io_service& io, const string& address)
     : basic_io_object<connection_service>(io)
@@ -55,7 +56,7 @@ public:
    *
    * @param bus The well-known bus to connect to.
    *
-   * @throws boost::system::system_error When opening the connection failed.
+   * @throws std::system_error When opening the connection failed.
    */
   // TODO: change this unsigned to an enumeration 
   connection(io_service& io, const int bus)
@@ -72,7 +73,7 @@ public:
    *
    * @return The reply received.
    *
-   * @throws boost::system::system_error When the response timed out or
+   * @throws std::system_error When the response timed out or
    * there was some other error.
    */
   message send(message& m)
@@ -91,7 +92,7 @@ public:
    *
    * @return The reply received.
    *
-   * @throws boost::system::system_error When the response timed out (if
+   * @throws std::system_error When the response timed out (if
    * timeout was not 0), or there was some other error.
    */
   template <typename Duration>
@@ -114,7 +115,7 @@ public:
    */
   template<typename MessageHandler>
   inline BOOST_ASIO_INITFN_RESULT_TYPE(MessageHandler,
-      void(boost::system::error_code, message))
+      void(std::error_code, message))
   async_send(message& m,
       BOOST_ASIO_MOVE_ARG(MessageHandler) handler)
   {

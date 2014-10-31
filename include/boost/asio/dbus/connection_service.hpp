@@ -6,14 +6,14 @@
 #ifndef BOOST_ASIO_DBUS_CONNECTION_SERVICE_HPP
 #define BOOST_ASIO_DBUS_CONNECTION_SERVICE_HPP
 
-#include <boost/asio.hpp>
-
 #include <boost/asio/dbus/error.hpp>
+#include <boost/asio/dbus/chrono.hpp>
 #include <boost/asio/dbus/element.hpp>
 #include <boost/asio/dbus/message.hpp>
 #include <boost/asio/dbus/detail/async_send_op.hpp>
-
 #include <boost/asio/dbus/impl/connection.ipp>
+
+#include <boost/asio.hpp>
 
 namespace boost {
 namespace asio {
@@ -89,13 +89,13 @@ public:
       return message();
     } else {
       return impl.send_with_reply_and_block(m,
-        chrono::milliseconds(timeout).count());
+        std::chrono::milliseconds(timeout).count());
     }
   }
 
   template<typename MessageHandler>
   inline BOOST_ASIO_INITFN_RESULT_TYPE(MessageHandler,
-      void(boost::system::error_code, message))
+      void(std::error_code, message))
   async_send(implementation_type& impl,
       message& m,
       BOOST_ASIO_MOVE_ARG(MessageHandler) handler)
@@ -104,12 +104,12 @@ public:
     impl.start(this->get_io_service());
 
     boost::asio::detail::async_result_init<
-      MessageHandler, void(boost::system::error_code, message)> init(
+      MessageHandler, void(std::error_code, message)> init(
         BOOST_ASIO_MOVE_CAST(MessageHandler)(handler));
 
     detail::async_send_op<
       BOOST_ASIO_HANDLER_TYPE(MessageHandler,
-        void(boost::system::error_code, message))>(
+        void(std::error_code, message))>(
           this->get_io_service(),
             BOOST_ASIO_MOVE_CAST(MessageHandler)(init.handler)) (impl, m);
 

@@ -6,11 +6,11 @@
 #ifndef BOOST_ASIO_DBUS_WATCH_TIMEOUT_HPP
 #define BOOST_ASIO_DBUS_WATCH_TIMEOUT_HPP
 
+#include <boost/asio/dbus/chrono.hpp>
 #include <dbus/dbus.h>
+#include <boost/asio/dbus/error.hpp>
 #include <boost/asio/generic/stream_protocol.hpp>
 #include <boost/asio/steady_timer.hpp>
-
-#include <boost/asio/dbus/chrono.hpp>
 
 namespace boost {
 namespace asio {
@@ -30,7 +30,7 @@ struct watch_handler
   watch_handler(DBusWatchFlags f, DBusWatch* w):
     flags(f), dbus_watch(w) {}
   
-  void operator()(boost::system::error_code ec, size_t)
+  void operator()(std::error_code ec, size_t)
   {
     if(ec) return;
     dbus_watch_handle(dbus_watch, flags);
@@ -98,7 +98,7 @@ struct timeout_handler
   timeout_handler(DBusTimeout* t):
     dbus_timeout(t) {}
   
-  void operator()(boost::system::error_code ec)
+  void operator()(std::error_code ec)
   {
     if(ec) return;
     dbus_timeout_handle(dbus_timeout);
@@ -111,7 +111,7 @@ static void timeout_toggled(DBusTimeout *dbus_timeout, void *data)
     *static_cast<steady_timer *>(dbus_timeout_get_data(dbus_timeout));
 
   if(dbus_timeout_get_enabled(dbus_timeout)) {
-    steady_timer::duration interval = chrono::milliseconds(dbus_timeout_get_interval(dbus_timeout));
+    steady_timer::duration interval = std::chrono::milliseconds(dbus_timeout_get_interval(dbus_timeout));
     timer.expires_from_now(interval);
     timer.cancel();
     timer.async_wait(timeout_handler(dbus_timeout));

@@ -7,10 +7,10 @@
 #define BOOST_ASIO_DBUS_MATCH_HPP
 
 #include <string>
-#include <boost/asio.hpp>
-
 #include <boost/asio/dbus/error.hpp>
 #include <boost/asio/dbus/connection.hpp>
+
+#include <boost/asio.hpp>
 
 namespace boost {
 namespace asio {

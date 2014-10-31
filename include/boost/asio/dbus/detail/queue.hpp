@@ -7,10 +7,10 @@
 #define BOOST_ASIO_DBUS_QUEUE_HPP
 
 #include <deque>
+#include <functional>
+#include <boost/asio/dbus/error.hpp>
 #include <boost/asio.hpp>
 #include <boost/asio/detail/mutex.hpp>
-
-#include <boost/asio/dbus/functional.hpp>
 
 
 namespace boost {
@@ -24,8 +24,8 @@ class queue
 public:
   typedef ::boost::asio::detail::mutex mutex_type;
   typedef Message message_type;
-  typedef function<
-    void(boost::system::error_code, Message)> handler_type;
+  typedef std::function<
+    void(std::error_code, Message)> handler_type;
 
 private:
   boost::asio::io_service& io;
@@ -44,14 +44,14 @@ private:
   {
     handler_type handler_;
     message_type message_;
-    boost::system::error_code error_;
+    std::error_code error_;
 
   public:
     void operator()() { handler_(error_, message_); }
     closure(
 	BOOST_ASIO_MOVE_ARG(handler_type) h, 
 	Message m,
-        boost::system::error_code e = boost::system::error_code())
+        std::error_code e = std::error_code())
       : handler_(h),
         message_(m),
         error_(e)
@@ -79,11 +79,11 @@ public:
 
   template<typename MessageHandler>
   inline BOOST_ASIO_INITFN_RESULT_TYPE(MessageHandler,
-      void(boost::system::error_code, message_type))
+      void(std::error_code, message_type))
   async_pop(BOOST_ASIO_MOVE_ARG(MessageHandler) h)
   {
     typedef ::boost::asio::detail::async_result_init<
-      MessageHandler, void(boost::system::error_code, message_type)> init_type;
+      MessageHandler, void(std::error_code, message_type)> init_type;
    
     mutex_type::scoped_lock lock(mutex);
     if(messages.empty())
